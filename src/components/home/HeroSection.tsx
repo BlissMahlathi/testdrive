@@ -71,7 +71,7 @@ const HeroSection = () => {
                 asChild
                 variant="outline"
                 size="lg"
-                className="h-14 px-8 text-lg font-semibold text-white border-2 border-white/30 hover:bg-white/10 hover:border-white/50"
+                className="h-14 px-8 text-lg font-semibold text-slate-400 border-2 border-white/30 hover:bg-white/10 hover:border-white/50"
               >
                 <Link to="/vendor/register">Start Selling Today</Link>
               </Button>
