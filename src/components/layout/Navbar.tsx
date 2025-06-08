@@ -113,39 +113,63 @@ const Navbar = () => {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
-              <div className="flex flex-col space-y-6 mt-10 px-4">
-                <div className="border-b pb-4">
-                  <Link
-                    to="/"
-                    className="text-lg font-medium hover:text-primary-500"
-                  >
-                    Home
-                  </Link>
-                  <Link
-                    to="/market"
-                    className="text-lg font-medium hover:text-primary-500"
-                  >
-                    Market
-                  </Link>
-                  {!user && (
-                    <Link
-                      to="/vendor/register"
-                      className="text-lg font-medium hover:text-primary-500"
-                    >
-                      Become a Vendor
-                    </Link>
-                  )}
+            <SheetContent side="right" className="p-0">
+              <div className="flex flex-col h-full">
+                {/* Close button */}
+                <div className="flex justify-end p-4">
+                  <SheetTrigger asChild>
+                    <Button variant="ghost" size="icon" aria-label="Close menu">
+                      <Menu className="h-6 w-6 rotate-90" />
+                    </Button>
+                  </SheetTrigger>
                 </div>
-                {user ? (
-                  <Button variant="default" asChild>
-                    <Link to="/dashboard">Dashboard</Link>
-                  </Button>
-                ) : (
-                  <Button variant="default" asChild>
-                    <Link to="/login">Login</Link>
-                  </Button>
-                )}
+                {/* Scrollable menu */}
+                <div className="flex-1 overflow-y-auto px-6 pb-6">
+                  <nav className="flex flex-col space-y-6">
+                    <Link
+                      to="/"
+                      className="text-lg font-medium rounded hover:bg-accent hover:text-primary-500 transition py-3 px-2"
+                    >
+                      Home
+                    </Link>
+                    <Link
+                      to="/market"
+                      className="text-lg font-medium rounded hover:bg-accent hover:text-primary-500 transition py-3 px-2"
+                    >
+                      Market
+                    </Link>
+                    {!user && (
+                      <Link
+                        to="/vendor/register"
+                        className="text-lg font-medium rounded hover:bg-accent hover:text-primary-500 transition py-3 px-2"
+                      >
+                        Become a Vendor
+                      </Link>
+                    )}
+                  </nav>
+                  {/* Divider */}
+                  <div className="my-6 border-t" />
+                  {/* Action button */}
+                  <div>
+                    {user ? (
+                      <Button
+                        variant="default"
+                        asChild
+                        className="w-full py-3 text-lg"
+                      >
+                        <Link to="/dashboard">Dashboard</Link>
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="default"
+                        asChild
+                        className="w-full py-3 text-lg"
+                      >
+                        <Link to="/login">Login</Link>
+                      </Button>
+                    )}
+                  </div>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
